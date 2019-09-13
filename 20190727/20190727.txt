@@ -1,0 +1,8 @@
+SELECT DL_DESC, 
+       regexp_replace(DL_DESC, '.*(.*KDGX[[:alnum:]]+).*', '\1') AS DL_DESC_FLAG
+ FROM GIS_DATA.SR38_ZX_USER_INFO_MID3 WHERE regexp_instr(DL_DESC, '.*KDGX[[:alnum:]]+')>0 
+ 
+ SELECT DL_DESC
+   FROM GIS_DATA.SR38_ZX_USER_INFO_MID3
+  WHERE REGEXP_INSTR(DL_DESC, '.*KDGX[[:alnum:]]+') = 0 
+    AND DL_DESC LIKE '%KDGX%'
